@@ -1,0 +1,19 @@
+export default function AuthorHeader() {
+  return (
+    <header className="flex items-center author-header">
+      <img
+        src="/avatar.jpeg"
+        alt="Avatar"
+        className="w-14 h-14 rounded-full shadow"
+      />
+      <div className="ml-4">
+        <p className="text-black dark:text-white text-2xl font-extrabold">
+          羊羊子
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
+          嗯？
+        </p>
+      </div>
+    </header>
+  );
+}
