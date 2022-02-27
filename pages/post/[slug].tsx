@@ -1,0 +1,45 @@
+import Head from 'next/head'
+import 'prism-themes/themes/prism-vsc-dark-plus.css'
+import { MDXRemote } from 'next-mdx-remote'
+import { getPostBySlug, getPostSlugList } from '../../lib/api'
+import React from 'react'
+import { IPost } from '../../types/post'
+import { GetStaticPaths, GetStaticProps } from 'next'
+
+export default function PostItem({ post }: { post: IPost }) {
+  return (
+    <div className="mt-6 max-w-3xl mx-auto">
+      <Head>
+        <title>{post.title}</title>
+        <meta name="author" content="PKY" />
+        <meta name="description" content={post.description} />
+        <meta name="keywords" content={post.tags} />
+      </Head>
+      <header className="mb-8">
+        <h1 className="text-3xl dark:text-white font-bold">{post.title}</h1>
+        <span className="block text-sm text-gray-500 dark:text-gray-400 mt-1">
+          {post.date}
+        </span>
+      </header>
+      <article className="prose dark:prose-light max-w-none">
+        <MDXRemote {...(post.content as any)} />
+      </article>
+    </div>
+  )
+}
+
+export const getStaticPaths: GetStaticPaths = async function () {
+  const posts = getPostSlugList()
+
+  return {
+    paths: posts.map((post) => ({
+      params: { slug: post },
+    })),
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async function ({ params }) {
+  const post = await getPostBySlug(params.slug)
+  return { props: { post } }
+}
