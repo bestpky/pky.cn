@@ -4,8 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
-import classNames from 'classnames'
 
 const navList = [
   {
@@ -19,19 +17,12 @@ const navList = [
 ]
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { route } = useRouter()
-
   return (
     <>
       <nav className="nav flex items-center justify-center py-8 space-x-6">
         {navList.map((nav) => (
           <Link key={nav.href} href={nav.href}>
-            <a
-              className={classNames(
-                'px-0.5 py-0 dark:text-white',
-                route === nav.href && 'nav-item '
-              )}
-            >
+            <a className={'nav-item px-0.5 py-0 dark:text-white'}>
               {nav.title}
             </a>
           </Link>
