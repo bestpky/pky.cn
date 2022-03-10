@@ -15,7 +15,9 @@ export default function AuthorHeader() {
         <p className="text-black dark:text-white text-2xl font-extrabold">
           羊羊子
         </p>
-        <p className="text-gray-500 dark:text-gray-400 text-sm"># 状态！</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
+          # 也祝你找到心仪的对象
+        </p>
       </div>
     </header>
   )

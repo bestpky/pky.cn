@@ -1,10 +1,12 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { MDXRemote } from 'next-mdx-remote'
 import Head from 'next/head'
 import 'prism-themes/themes/prism-vsc-dark-plus.css'
-import { MDXRemote } from 'next-mdx-remote'
-import { getPostBySlug, getPostSlugList } from '../../lib/api'
 import React from 'react'
-import { IPost } from '../../types/post'
-import { GetStaticPaths, GetStaticProps } from 'next'
+
+import { getPostBySlug, getPostSlugList } from '@lib/api'
+
+import { IPost } from '@interfaces/post'
 
 export default function PostItem({ post }: { post: IPost }) {
   return (

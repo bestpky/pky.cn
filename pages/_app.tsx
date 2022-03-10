@@ -1,18 +1,18 @@
-import 'tailwindcss/tailwind.css'
-import '../styles/globals.css'
-import Link from 'next/link'
-import Image from 'next/image'
-import React from 'react'
 import { AppProps } from 'next/app'
+import Link from 'next/link'
+import React from 'react'
+import 'tailwindcss/tailwind.css'
+
+import '@styles/globals.css'
 
 const navList = [
   {
-    title: '首页',
+    title: 'Home',
     href: '/',
   },
   {
-    title: '关于',
-    href: '/about',
+    title: 'Playground',
+    href: '/playground',
   },
 ]
 
@@ -29,31 +29,15 @@ export default function App({ Component, pageProps }: AppProps) {
         ))}
       </nav>
       <Component {...pageProps} />
-      <footer className="md:flex items-center justify-between mt-14 border-t dark:border-gray-700 py-8">
+      <footer className="max-w-5xl mx-auto px-4 md:flex items-center justify-between mt-14 border-t dark:border-gray-700 py-8">
         <p className="text-sm text-gray-600 dark:text-gray-400 flex flex-col md:flex-row">
           <span>
             Copyright &copy; {new Date().getFullYear()}{' '}
             <Link href="/">
-              <a>pky</a>
+              <a>pky.cn</a>
             </Link>
           </span>
-          <span className="hidden md:block mx-1">·</span>
         </p>
-        <a
-          className="inline-block text-black dark:text-white mt-2 md:mt-0"
-          href="https://vercel.com"
-          target="_blank"
-          rel="noreferrer noopener"
-          title="Powered by Vercel"
-        >
-          <Image
-            src="/powered-by-vercel.svg"
-            alt="Powered by Vercel"
-            className="h-8"
-            width={167}
-            height={32}
-          />
-        </a>
       </footer>
     </>
   )

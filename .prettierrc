@@ -1,4 +1,14 @@
 {
   "singleQuote": true,
-  "semi": false
+  "semi": false,
+  "importOrder": [
+    "^@shared/(.*)$",
+    "^@lib/(.*)$",
+    "^@styles/(.*)$",
+    "^@interfaces/(.*)$",
+    "^@pages/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

@@ -1,10 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
 import dayjs from 'dayjs'
+import fs from 'fs'
+import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
-import prism from 'remark-prism'
+import path from 'path'
 import externalLinks from 'remark-external-links'
+import prism from 'remark-prism'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 const postDirectory = path.join(contentDirectory, 'post')
