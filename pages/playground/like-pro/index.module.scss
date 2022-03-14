@@ -1,0 +1,15 @@
+@import '@styles/var.scss';
+
+.box {
+  width: 300px;
+  height: 500px;
+  background-color: $color-bg;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  > img {
+    cursor: pointer;
+  }
+}

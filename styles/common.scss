@@ -2,3 +2,9 @@
   flex: auto;
   transform: translateX(calc(50vw - 50%));
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
