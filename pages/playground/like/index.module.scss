@@ -1,0 +1,39 @@
+@import '@styles/var.scss';
+
+.wrapper {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.like {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  &.heart {
+    background-image: url('./heart.png');
+    animation-timing-function: steps(28);
+  }
+
+  &.thumb {
+    background-image: url('./thumb.png');
+    animation-timing-function: steps(23);
+  }
+
+  &.animate {
+    animation-name: burst;
+  }
+}
+
+@keyframes burst {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
