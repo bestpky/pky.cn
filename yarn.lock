@@ -394,6 +394,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@pky/fe-utils@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.npmmirror.com/@pky/fe-utils/-/fe-utils-0.1.10.tgz#00d4c542516faf3972cb7ad802136cd3b2744bfc"
+  integrity sha512-FLzBmr3lTSQmSBYyKYHhQKY5A65O1BJZ7uiglyLXSTiYQQJ24n9AqtQSFT94gUI+/Re6kwcQ264JhuJ30pKEZw==
+
 "@rushstack/eslint-patch@^1.0.8":
   version "1.1.0"
   resolved "https://registry.npmmirror.com/@rushstack/eslint-patch/download/@rushstack/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"

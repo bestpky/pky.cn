@@ -1,0 +1,14 @@
+.box {
+  height: 20px;
+  overflow: hidden;
+  border: 1px solid red;
+  position: relative;
+  width: 500px;
+  .item {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    transition: all 1s;
+  }
+}

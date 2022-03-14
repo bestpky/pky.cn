@@ -1,0 +1,15 @@
+.wrapper {
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    > div {
+        height: 100px;
+        &:nth-child(odd) {
+            background-color: #ff0;
+        }
+        &:nth-child(even) {
+            background-color: violet;
+        }
+    }
+}
