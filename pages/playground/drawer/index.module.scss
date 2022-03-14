@@ -1,0 +1,45 @@
+@import '../../../styles/var.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.demo {
+  width: 300px;
+  height: 300px;
+  background-color: #eee;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.sider {
+  width: 60px;
+  background-color: $color-primary;
+  position: relative;
+  z-index: 1;
+  @include flexCenter;
+}
+
+.drawer {
+  height: 150px;
+  width: 150px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px 1px #ccc;
+  position: absolute;
+  left: 60px;
+  top: 80px;
+  z-index: 0;
+  &.demo1 {
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: all 300ms;
+  }
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

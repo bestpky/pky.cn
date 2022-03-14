@@ -1,0 +1,16 @@
+// 主题色
+$color-primary: rgb(3, 209, 235);
+// 一级黑色
+$color-black-1: rgba(10, 19, 18, 1);
+// 一级灰色
+$color-gray-1: rgba(10, 19, 18, 0.6);
+// 背景灰
+$color-bg: #f5f6f7;
+
+$color-border: rgba(10, 19, 18, 0.1);
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

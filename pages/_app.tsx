@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import 'tailwindcss/tailwind.css'
 
-import '@styles/globals.css'
+import '@styles/index.scss'
 
 const navList = [
   {
