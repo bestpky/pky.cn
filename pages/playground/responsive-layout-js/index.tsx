@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { useWatchResize } from '@lib/hooks/use-watch-resize'
 
 import styles from './index.module.scss'

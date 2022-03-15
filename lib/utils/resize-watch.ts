@@ -1,3 +1,5 @@
+import { ResizeObserver } from '@juggle/resize-observer'
+
 type FindIterator<T> = (item: T, index: number, obj: T[]) => unknown
 /**
  * 从数组里去掉一个元素

@@ -1,5 +1,5 @@
 import { trimEnd } from 'lodash'
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { List } from './index'
 import styles from './index.module.scss'
@@ -55,7 +55,7 @@ export default function Carousel({ isRun, list, updateList }: Props) {
   return (
     <div>
       <div ref={wrapperRef} className={styles.box}>
-        {list.map(({ id, title, info }, i) => (
+        {list?.map(({ id, title, info }, i) => (
           <div
             style={{ top: i * TITLE_HEIGHT }}
             className={styles.item}

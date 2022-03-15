@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Carousel1 from './demo1'
-
-// import Carousel2 from './demo2'
+import Carousel2 from './demo2'
 
 const stockList = [
   {
@@ -25,18 +24,22 @@ export type List = typeof stockList
 
 export default function Wrapper() {
   const [isRun, setIsRun] = useState(false)
-  const [list1, setList1] = useState(stockList)
-  // const [list2, setList2] = useState(stockList)
+  const [list1, setList1] = useState([])
+  const [list2, setList2] = useState([])
+  useEffect(() => {
+    setList1(stockList)
+    setList2(stockList)
+  }, [])
   function updateList1(newList: typeof stockList) {
     setList1(newList)
   }
-  // function updateList2(newList: typeof stockList) {
-  //     setList2(newList)
-  // }
+  function updateList2(newList: typeof stockList) {
+    setList2(newList)
+  }
   return (
     <div className="max-w-3xl container flex-center">
       <Carousel1 isRun={isRun} list={list1} updateList={updateList1} />
-      {/* <Carousel2 isRun={isRun} list={list2} updateList={updateList2} /> */}
+      <Carousel2 isRun={isRun} list={list2} updateList={updateList2} />
       <button onClick={() => setIsRun(!isRun)}>
         {isRun ? '暂停' : '启动'}
       </button>

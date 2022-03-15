@@ -1,6 +1,8 @@
-import { useEffect, useRef } from 'react'
+import Image from 'next/image'
+import React, { useEffect, useRef } from 'react'
 
-import Animate from './bezier-animate'
+import Animate from '@lib/utils/bezier-animate'
+
 import styles from './index.module.scss'
 
 export default function LikePro() {
@@ -18,7 +20,7 @@ export default function LikePro() {
   return (
     <div className="max-w-3xl container flex-center">
       <div className={styles.box} ref={bezierBox}>
-        <img
+        <Image
           onClick={() => {
             if (!animateIns.current?.isPlaying) {
               const cb = (div) => {

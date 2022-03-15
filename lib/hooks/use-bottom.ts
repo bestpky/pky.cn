@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
  * @param action 执行的函数
  * @returns
  */
-const useBottom = <T extends Element>(action: Function) => {
+const useBottom = <T extends Element>(action: () => void) => {
   const containerRef = useRef<T>(null)
   useEffect(() => {
     function doInBottom(e: WheelEvent) {

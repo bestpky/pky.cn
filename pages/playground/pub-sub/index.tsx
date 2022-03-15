@@ -1,14 +1,10 @@
 // import { EventEmitter } from '@pky/fe-utils'
 // import { useRef, useState } from 'react'
-
 // import styles from './index.module.scss'
-
 // export default function Demo() {
 //   const eventRef = useRef(new EventEmitter())
-
 //   const [inputValue, setInputValue] = useState('')
 //   const [checkbox, setCheckbox] = useState(['red', 'blue'])
-
 //   const [boxs, setBoxs] = useState([
 //     {
 //       key: 'red',
@@ -19,10 +15,8 @@
 //       isSub: false,
 //     },
 //   ])
-
 //   const [redContent, setRedContent] = useState('')
 //   const [blueContent, setBlueContent] = useState('')
-
 //   const updateContentRef = useRef(function updateContent(
 //     key: string,
 //     content: string
@@ -33,7 +27,6 @@
 //       setBlueContent(content)
 //     }
 //   })
-
 //   const handleCheckboxChange = (key: string, isCheck: boolean) => {
 //     if (isCheck) {
 //       setCheckbox([...checkbox, key])
@@ -44,13 +37,11 @@
 //       setCheckbox(temp)
 //     }
 //   }
-
 //   const handlePub = () => {
 //     checkbox.forEach((type) => {
 //       eventRef.current.emit(type, type, inputValue)
 //     })
 //   }
-
 //   const handleSub = (key) => {
 //     let isSub // 是否订阅
 //     const newBoxs = boxs.reduce((result, item) => {
@@ -63,14 +54,12 @@
 //       return result
 //     }, [])
 //     setBoxs(newBoxs)
-
 //     if (isSub) {
 //       eventRef.current.on(key, updateContentRef.current)
 //     } else {
 //       eventRef.current.off(key, updateContentRef.current)
 //     }
 //   }
-
 //   return (
 //     <div className={styles.demo}>
 //       <div>
@@ -111,3 +100,8 @@
 //     </div>
 //   )
 // }
+import React from 'react'
+
+export default function Temporary() {
+  return <div>TODO</div>
+}
