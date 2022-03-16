@@ -11,7 +11,7 @@ class MyDocument extends Document {
     return (
       <Html lang="zh-CN">
         <Head>
-          <link rel="icon" type="image/png" href="/favicon.png" />
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />
