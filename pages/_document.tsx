@@ -11,12 +11,7 @@ class MyDocument extends Document {
     return (
       <Html lang="zh-CN">
         <Head>
-          <script
-            async
-            defer
-            data-website-id="a4bc7e1a-0559-4a0b-bf29-5de3f4e87c71"
-            src="https://umami-five-tau.vercel.app/umami.js"
-          />
+          <link rel="icon" type="image/png" href="/favicon.png" />
         </Head>
         <body>
           <Main />

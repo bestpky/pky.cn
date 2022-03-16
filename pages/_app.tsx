@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <span>
             Copyright &copy; {new Date().getFullYear()}{' '}
             <Link href="/">
-              <a>pky.cn</a>
+              <a>lovepky.cn</a>
             </Link>
           </span>
         </p>
