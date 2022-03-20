@@ -16,9 +16,9 @@ const useBottom = <T extends Element>(action: () => void) => {
         return action()
       }
     }
-    const debounceDoInBottom = debounce((e: WheelEvent) => {
+    const debounceDoInBottom = debounce(300, (e: WheelEvent) => {
       doInBottom(e)
-    }, 300)
+    })
     const dom = containerRef.current
     if (dom) {
       dom.addEventListener('scroll', debounceDoInBottom)

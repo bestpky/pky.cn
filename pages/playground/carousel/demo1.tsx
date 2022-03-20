@@ -14,7 +14,6 @@ interface Props {
 
 export default function Carousel({ isRun, list, updateList }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null)
-  console.log(list)
   useEffect(() => {
     let timer: number
 
@@ -42,7 +41,6 @@ export default function Carousel({ isRun, list, updateList }: Props) {
       }, 1000)
     }
     return () => {
-      console.log(timer)
       clearInterval(timer)
     }
   }, [isRun, list, updateList])

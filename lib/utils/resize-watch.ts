@@ -55,7 +55,6 @@ export function resizeWatch(el: Element, callback: Callback) {
   ro.observe(el)
   return () => {
     remove(fns, (cb: Callback) => cb === callback)
-    console.log(fns)
     if (!fns.length) {
       elAndCbMap.delete(el)
       ro.unobserve(el)

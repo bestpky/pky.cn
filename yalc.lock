@@ -1,0 +1,8 @@
+{
+  "version": "v1",
+  "packages": {
+    "@pky/fe-utils": {
+      "signature": "7a274a92a1f61a9bb9771cf3f4cac09a"
+    }
+  }
+}
