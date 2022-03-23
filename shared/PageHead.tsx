@@ -1,10 +1,14 @@
 import Head from 'next/head'
 import React from 'react'
 
-export default function PageHead() {
+export default function PageHead({
+  title = '羊羊子的博客',
+}: {
+  title?: string
+}) {
   return (
     <Head>
-      <title>羊羊子的博客</title>
+      <title>{title}</title>
       <meta name="author" content="pky" />
       <meta
         name="description"

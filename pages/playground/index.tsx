@@ -48,10 +48,9 @@ export default function Playground() {
   const { route } = useRouter()
   return (
     <>
-      <PageHead />
+      <PageHead title={'playground'} />
       <div className="max-w-3xl container">
         <AuthorHeader />
-        <div className="mt-10"></div>
         <nav>
           {menus.map(({ pathname, title }) => {
             return (
