@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import classNames from 'classnames'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 import Head from 'next/head'
@@ -9,9 +10,11 @@ import { getPostBySlug, getPostSlugList } from '@lib/api'
 
 import { IPost } from '@interfaces/post'
 
+import styles from './index.module.scss'
+
 export default function PostItem({ post }: { post: IPost }) {
   return (
-    <div className="mt-6 max-w-3xl mx-auto">
+    <div className="mt-6 max-w-3xl mx-auto" style={{ flex: 'auto' }}>
       <Head>
         <title>{post.title}</title>
         <meta name="author" content="PKY" />
@@ -24,7 +27,12 @@ export default function PostItem({ post }: { post: IPost }) {
           {post.date}
         </span>
       </header>
-      <article className="prose dark:prose-light max-w-none">
+      <article
+        className={classNames(
+          'prose dark:prose-light max-w-none',
+          styles.article
+        )}
+      >
         <MDXRemote {...(post.content as any)} />
       </article>
     </div>

@@ -51,6 +51,12 @@ export default function Playground() {
       <PageHead title={'playground'} />
       <div className="max-w-3xl container">
         <AuthorHeader />
+        <h5
+          className="text-m dark:text-gray-100 font-semibold "
+          style={{ margin: '20px 0' }}
+        >
+          这里收录了一些之前的Demo，看似没什么营养。
+        </h5>
         <nav>
           {menus.map(({ pathname, title }) => {
             return (

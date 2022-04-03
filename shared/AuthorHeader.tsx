@@ -16,7 +16,7 @@ export default function AuthorHeader() {
           羊羊子
         </p>
         <p className="text-gray-500 dark:text-gray-400 text-sm">
-          # Keep Running.
+          # 前端渣渣 / 不记录你会忘的，信我 / Keep Running
         </p>
       </div>
     </header>
