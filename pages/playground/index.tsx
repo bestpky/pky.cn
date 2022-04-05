@@ -42,6 +42,10 @@ const menus = [
     pathname: 'carousel',
     title: 'Carousel',
   },
+  {
+    pathname: 'context-store',
+    title: 'useContext + useReducer share state',
+  },
 ]
 
 export default function Playground() {
