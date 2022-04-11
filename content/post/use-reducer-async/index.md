@@ -1,12 +1,13 @@
 ---
 title: use-reducer-async
 date: 2022-04-11
+description: use-reducer-async
 tags:
   - reducer
   - async
 ---
 
-之前的reduce+context的状态管理那篇文章没有提到怎么处理异步，这篇提供一个`use-reducer-async`的hook去支持异步操作
+之前的 reduce+context 的状态管理那篇文章没有提到怎么处理异步，这篇提供一个`use-reducer-async`的 hook 去支持异步操作
 
 思路很简单，就是把`dispatch`、`getState`和`action`当参数传进高阶函数里，返回一个异步函数，里面的逻辑你自定义
 
@@ -14,62 +15,67 @@ tags:
 
 ```ts
 import {
+  Dispatch,
+  Reducer,
+  ReducerAction,
+  ReducerState,
   useCallback,
   useEffect,
   useLayoutEffect,
   useReducer,
   useRef,
-  Dispatch,
-  Reducer,
-  ReducerState,
-  ReducerAction,
-} from 'react';
+} from 'react'
 
-const isClient = (
-  typeof window !== 'undefined'
-  && !/ServerSideRendering/.test(window.navigator && window.navigator.userAgent)
-);
+const isClient =
+  typeof window !== 'undefined' &&
+  !/ServerSideRendering/.test(window.navigator && window.navigator.userAgent)
 
-const useIsomorphicLayoutEffect = isClient ? useLayoutEffect : useEffect;
+const useIsomorphicLayoutEffect = isClient ? useLayoutEffect : useEffect
 
 const useAbortSignal = () => {
-  const abortController = useRef<AbortController>();
+  const abortController = useRef<AbortController>()
   if (!abortController.current) {
-    abortController.current = new AbortController();
+    abortController.current = new AbortController()
   }
   useEffect(() => {
     const abort = () => {
-      (abortController.current as AbortController).abort();
-    };
-    return abort;
-  }, []);
-  return abortController.current.signal;
-};
+      ;(abortController.current as AbortController).abort()
+    }
+    return abort
+  }, [])
+  return abortController.current.signal
+}
 
 export type AsyncActionHandlers<
   R extends Reducer<any, any>,
   AsyncAction extends { type: string }
 > = {
-  [T in AsyncAction['type']]: AsyncAction extends infer A ? A extends {
-    type: T;
-  } ? (s: {
-    dispatch: Dispatch<AsyncAction | ReducerAction<R>>;
-    getState: () => ReducerState<R>;
-    signal: AbortSignal;
-  }) => (a: A) => Promise<void> : never : never;
-};
+  [T in AsyncAction['type']]: AsyncAction extends infer A
+    ? A extends {
+        type: T
+      }
+      ? (s: {
+          dispatch: Dispatch<AsyncAction | ReducerAction<R>>
+          getState: () => ReducerState<R>
+          signal: AbortSignal
+        }) => (a: A) => Promise<void>
+      : never
+    : never
+}
 
 export function useReducerAsync<
   R extends Reducer<any, any>,
   I,
   AsyncAction extends { type: string },
-  ExportAction extends AsyncAction | ReducerAction<R> = AsyncAction | ReducerAction<R>
+  ExportAction extends AsyncAction | ReducerAction<R> =
+    | AsyncAction
+    | ReducerAction<R>
 >(
   reducer: R,
   initializerArg: I,
   initializer: (arg: I) => ReducerState<R>,
-  asyncActionHandlers: AsyncActionHandlers<R, AsyncAction>,
-): [ReducerState<R>, Dispatch<ExportAction>];
+  asyncActionHandlers: AsyncActionHandlers<R, AsyncAction>
+): [ReducerState<R>, Dispatch<ExportAction>]
 
 /**
  * useReducer with async actions
@@ -98,54 +104,62 @@ export function useReducerAsync<
 export function useReducerAsync<
   R extends Reducer<any, any>,
   AsyncAction extends { type: string },
-  ExportAction extends AsyncAction | ReducerAction<R> = AsyncAction | ReducerAction<R>
+  ExportAction extends AsyncAction | ReducerAction<R> =
+    | AsyncAction
+    | ReducerAction<R>
 >(
   reducer: R,
   initialState: ReducerState<R>,
-  asyncActionHandlers: AsyncActionHandlers<R, AsyncAction>,
-): [ReducerState<R>, Dispatch<ExportAction>];
+  asyncActionHandlers: AsyncActionHandlers<R, AsyncAction>
+): [ReducerState<R>, Dispatch<ExportAction>]
 
 export function useReducerAsync<
   R extends Reducer<any, any>,
   I,
   AsyncAction extends { type: string },
-  ExportAction extends AsyncAction | ReducerAction<R> = AsyncAction | ReducerAction<R>
+  ExportAction extends AsyncAction | ReducerAction<R> =
+    | AsyncAction
+    | ReducerAction<R>
 >(
   reducer: R,
   initializerArg: I | ReducerState<R>,
   initializer: unknown,
-  asyncActionHandlers?: AsyncActionHandlers<R, AsyncAction>,
+  asyncActionHandlers?: AsyncActionHandlers<R, AsyncAction>
 ): [ReducerState<R>, Dispatch<ExportAction>] {
-  const signal = useAbortSignal();
-  const aaHandlers = (
-    asyncActionHandlers || initializer
-  ) as AsyncActionHandlers<R, AsyncAction>;
+  const signal = useAbortSignal()
+  const aaHandlers = (asyncActionHandlers ||
+    initializer) as AsyncActionHandlers<R, AsyncAction>
   const [state, dispatch] = useReducer(
     reducer,
     initializerArg as any,
-    asyncActionHandlers && initializer as any,
-  );
-  const lastState = useRef(state);
+    asyncActionHandlers && (initializer as any)
+  )
+  const lastState = useRef(state)
   useIsomorphicLayoutEffect(() => {
-    lastState.current = state;
-  }, [state]);
-  const getState = useCallback((() => lastState.current), []);
-  const wrappedDispatch = useCallback((action: AsyncAction | ReducerAction<R>) => {
-    const { type } = (action || {}) as { type?: AsyncAction['type'] };
-    const aaHandler = (
-      (type && aaHandlers[type]) || null
-    ) as (typeof action extends AsyncAction ? (s: {
-      dispatch: Dispatch<AsyncAction | ReducerAction<R>>;
-      getState: () => ReducerState<R>;
-      signal: AbortSignal;
-    }) => (a: typeof action) => Promise<void> : null);
-    if (aaHandler) {
-      aaHandler({ dispatch: wrappedDispatch, getState, signal })(action as AsyncAction);
-    } else {
-      dispatch(action as ReducerAction<R>);
-    }
-  }, [aaHandlers, getState, signal]);
-  return [state, wrappedDispatch];
+    lastState.current = state
+  }, [state])
+  const getState = useCallback(() => lastState.current, [])
+  const wrappedDispatch = useCallback(
+    (action: AsyncAction | ReducerAction<R>) => {
+      const { type } = (action || {}) as { type?: AsyncAction['type'] }
+      const aaHandler = ((type && aaHandlers[type]) ||
+        null) as typeof action extends AsyncAction
+        ? (s: {
+            dispatch: Dispatch<AsyncAction | ReducerAction<R>>
+            getState: () => ReducerState<R>
+            signal: AbortSignal
+          }) => (a: typeof action) => Promise<void>
+        : null
+      if (aaHandler) {
+        aaHandler({ dispatch: wrappedDispatch, getState, signal })(
+          action as AsyncAction
+        )
+      } else {
+        dispatch(action as ReducerAction<R>)
+      }
+    },
+    [aaHandlers, getState, signal]
+  )
+  return [state, wrappedDispatch]
 }
 ```
-
