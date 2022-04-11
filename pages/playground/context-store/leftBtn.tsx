@@ -1,6 +1,5 @@
+import { useStore } from '@store/store'
 import React from 'react'
-
-import { useStore } from './store'
 
 export const LeftBtn = () => {
   const {
@@ -17,3 +16,5 @@ export const LeftBtn = () => {
     </button>
   )
 }
+
+export default LeftBtn

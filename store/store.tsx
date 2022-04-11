@@ -1,3 +1,4 @@
+import { DispatchAction, IContextType, IStore } from '@type/types'
 import React, {
   FC,
   ReducerAction,
@@ -5,8 +6,6 @@ import React, {
   useContext,
   useReducer,
 } from 'react'
-
-import { DispatchAction, IContextType, IStore } from './types'
 
 const store: IStore = {
   counter: 1,

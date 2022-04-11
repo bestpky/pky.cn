@@ -1,8 +1,8 @@
+import { ActionTypes, Provider, useStore } from '@store/store'
 import React from 'react'
 
 import { LeftBtn } from './leftBtn'
 import { RightBtn } from './rightBtn'
-import { ActionTypes, Provider, useStore } from './store'
 
 const Page = () => {
   const {
