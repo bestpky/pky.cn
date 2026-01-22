@@ -5,7 +5,7 @@ export default function AuthorHeader() {
   return (
     <header className="flex items-center author-header">
       <Image
-        src="/avatar.jpg"
+        src="/avatar.jpeg"
         alt="Avatar"
         className="rounded-full shadow"
         width={50}
@@ -13,10 +13,10 @@ export default function AuthorHeader() {
       />
       <div className="ml-4">
         <p className="text-black dark:text-white text-2xl font-extrabold">
-          羊羊子
+          Kevin
         </p>
         <p className="text-gray-500 dark:text-gray-400 text-sm">
-          # 前端渣渣 / 不记录你会忘的，信我 / Keep Running
+          # Keep Learning
         </p>
       </div>
     </header>
