@@ -40,7 +40,7 @@ export default function PostItem({ post }: { post: IPost }) {
 }
 
 export const getStaticPaths: GetStaticPaths = async function () {
-  const posts = getPostSlugList()
+  const posts = await getPostSlugList()
 
   return {
     paths: posts.map((post) => ({

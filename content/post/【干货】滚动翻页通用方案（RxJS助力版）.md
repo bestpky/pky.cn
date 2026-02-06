@@ -8,8 +8,6 @@ tags:
   - 性能优化
 ---
 
-# 【干货】滚动翻页通用方案（RxJS 助力版）
-
 ## Feature
 
 - [x] 防抖（RxJS debounceTime，默认 300ms）

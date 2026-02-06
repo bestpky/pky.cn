@@ -41,7 +41,7 @@ export default function Home({ posts }: IProps) {
 }
 
 export const getStaticProps: GetStaticProps = async function () {
-  const posts = getPostList()
+  const posts = await getPostList()
   return {
     props: { posts },
   }

@@ -33,3 +33,11 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# prisma
+node_modules/.prisma
+
+# database exports
+.vercel
+.env*.local
+.env
