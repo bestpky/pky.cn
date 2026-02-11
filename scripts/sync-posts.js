@@ -155,7 +155,9 @@ async function syncAllPosts() {
 
   console.log('\n' + '='.repeat(60))
   console.log('✅ 同步完成！')
-  console.log(`   成功: ${results.success} (创建: ${results.created}, 更新: ${results.updated})`)
+  console.log(
+    `   成功: ${results.success} (创建: ${results.created}, 更新: ${results.updated})`
+  )
   console.log(`   失败: ${results.failed}`)
   console.log('='.repeat(60))
 

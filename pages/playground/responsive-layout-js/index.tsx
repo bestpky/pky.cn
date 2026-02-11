@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useWatchResize } from '@lib/hooks/use-watch-resize'
+import { useWatchResize } from '@pky/hooks'
 
 import styles from './index.module.scss'
 

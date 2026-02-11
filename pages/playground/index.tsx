@@ -35,10 +35,6 @@ const menus = [
     title: 'Responsive layout by grid layout',
   },
   {
-    pathname: 'scroll-to-bottom',
-    title: 'Scroll pagination',
-  },
-  {
     pathname: 'carousel',
     title: 'Carousel',
   },

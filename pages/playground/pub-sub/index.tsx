@@ -1,4 +1,4 @@
-import { EventEmitter } from '@pky/fe-utils'
+import { EventEmitter } from './event-emitter'
 import classNames from 'classnames'
 import React from 'react'
 import { useRef, useState } from 'react'
