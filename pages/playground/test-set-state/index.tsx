@@ -17,7 +17,7 @@ export default class Test extends React.Component<null, { num: number }> {
   render() {
     return (
       <div
-        className="container flex-center"
+        className="flex-auto translate-x-[calc(50vw-50%)] flex items-center justify-center"
         onClick={() => {
           this.setState({ num: this.state.num + 1 })
           console.log(this.state.num)

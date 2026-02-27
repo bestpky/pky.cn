@@ -65,7 +65,12 @@ export default function Demo() {
     }
   }
   return (
-    <div className={classNames('container flex-center', styles.demo)}>
+    <div
+      className={classNames(
+        'flex-auto translate-x-[calc(50vw-50%)] flex items-center justify-center',
+        styles.demo
+      )}
+    >
       <div>
         <input
           style={{ marginRight: 10, border: '1px solid #ccc' }}

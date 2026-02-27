@@ -1,4 +1,4 @@
-import { DispatchAction, IContextType, IStore } from '@type/types'
+import { DispatchAction, IContextType, IStore } from '@store/types'
 import React, {
   FC,
   ReducerAction,

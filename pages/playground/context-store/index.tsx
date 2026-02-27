@@ -11,7 +11,7 @@ const Page = () => {
   } = useStore()
   return (
     <div
-      className="max-w-3xl container flex-center"
+      className="max-w-3xl flex-auto translate-x-[calc(50vw-50%)] flex items-center justify-center"
       style={{ flexDirection: 'column' }}
     >
       <div className="mb-10" style={{ fontSize: 30 }}>
