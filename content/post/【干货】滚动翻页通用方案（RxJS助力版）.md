@@ -1,5 +1,6 @@
 ---
 title: 【干货】滚动翻页通用方案（RxJS助力版）
+slug: scroll-pagination-rxjs
 date: 2025-12-24
 description: 一套基于 RxJS 的滚动翻页通用方案,采用命令式设计,支持防抖、高度自检测、并发控制等特性,实现数据层与控制层的完美解耦
 tags:

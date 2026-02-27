@@ -25,6 +25,7 @@ node scripts/sync-posts.js
 ```
 
 输出示例：
+
 ```
 🚀 开始全量同步文章...
 
@@ -52,12 +53,14 @@ node scripts/sync-posts.js "文章slug"
 ```
 
 示例：
+
 ```bash
 pnpm sync:post "【干货】滚动翻页通用方案（RxJS助力版）"
 pnpm sync:post "Koa为什么是洋葱圈模型"
 ```
 
 输出示例：
+
 ```
 🚀 开始同步文章: 【干货】滚动翻页通用方案（RxJS助力版）
 
@@ -80,10 +83,10 @@ node scripts/sync-posts.js --help
 
 ```markdown
 ---
-title: 文章标题          # 必需
-date: 2026-01-22        # 必需
-description: 文章描述   # 可选
-tags:                   # 可选
+title: 文章标题 # 必需
+date: 2026-01-22 # 必需
+description: 文章描述 # 可选
+tags: # 可选
   - React
   - TypeScript
 ---
@@ -131,7 +134,7 @@ pnpm sync:all
 
 ### 注意事项
 
-1. **环境变量**：确保 `.env.local` 中配置了 `DATABASE_URL`
+1. **环境变量**：确保 `.env` 中配置了 `DATABASE_URL`
 2. **Slug 匹配**：slug 必须与文件/目录名完全一致（包括中文、特殊字符）
 3. **日期格式**：date 字段支持任何 JavaScript `Date` 可解析的格式
 4. **并发执行**：全量同步是串行执行，避免数据库并发问题

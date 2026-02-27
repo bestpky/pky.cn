@@ -1,4 +1,5 @@
 ---
+slug: mobx-wisdom
 title: Mobx的智慧
 date: 2022-03-31
 description: Mobx的智慧

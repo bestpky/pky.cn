@@ -1,4 +1,5 @@
 ---
+slug: tsconfig-explained
 title: tsconfig 解析
 date: 2022-03-03 22:00:00
 description: tsconfig 解析

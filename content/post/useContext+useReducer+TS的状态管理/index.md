@@ -1,4 +1,5 @@
 ---
+slug: usecontext-usereducer-ts-state
 title: useContext+useReducer+TS的状态管理
 date: 2022-04-05
 description: useContext+useReducer+TS的状态管理

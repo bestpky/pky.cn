@@ -1,4 +1,5 @@
 ---
+slug: simple-redux
 title: 简单的Redux
 date: 2022-04-07
 description: 简单的Redux

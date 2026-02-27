@@ -1,4 +1,5 @@
 ---
+slug: mini-webpack
 title: 极简版Webpack
 date: 2022-04-12
 description: 极简版Webpack

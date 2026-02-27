@@ -1,4 +1,5 @@
 ---
+slug: koa-onion-model
 title: koa为什么是洋葱圈模型
 date: 2022-03-29
 description: koa为什么是洋葱圈模型

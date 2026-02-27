@@ -1,4 +1,5 @@
 ---
+slug: use-reducer-async
 title: use-reducer-async
 date: 2022-04-11
 description: use-reducer-async

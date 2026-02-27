@@ -1,4 +1,5 @@
 ---
+slug: ssr-intro-part-1
 title: 浅谈服务端渲染(上)
 date: 2022-02-28 23:00:00
 description: 浅谈服务端渲染(上)

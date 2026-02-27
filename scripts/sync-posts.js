@@ -11,6 +11,8 @@
  * node scripts/sync-posts.js "【干货】滚动翻页通用方案（RxJS助力版）"
  */
 
+require('dotenv').config()
+
 const fs = require('fs')
 const path = require('path')
 const matter = require('gray-matter')
@@ -88,9 +90,12 @@ async function syncPost(slug) {
       throw new Error(`Missing required field "date" in ${slug}`)
     }
 
+    // 优先使用 frontmatter 中的 slug，否则退回使用文件名
+    const finalSlug = data.slug || slug
+
     // 插入或更新数据库
     const result = await prisma.post.upsert({
-      where: { slug },
+      where: { slug: finalSlug },
       update: {
         title: data.title,
         description: data.description || null,
@@ -100,7 +105,7 @@ async function syncPost(slug) {
         updatedAt: new Date(),
       },
       create: {
-        slug,
+        slug: finalSlug,
         title: data.title,
         description: data.description || null,
         content,

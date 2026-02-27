@@ -1,4 +1,5 @@
 ---
+slug: react15-architecture
 title: React15架构的设计思路
 date: 2022-04-14
 description: React15架构的设计思路

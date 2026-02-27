@@ -1,4 +1,5 @@
 ---
+slug: functional-vs-class-component
 title: 函数式组件和类组件有何不同
 date: 2022-03-28
 description: 函数式组件和类组件有何不同
