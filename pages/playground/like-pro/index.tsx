@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
 
-import Animate from './bezier-animate'
+import Animate from '@lib/bezier-animate'
 
 import styles from './index.module.scss'
 

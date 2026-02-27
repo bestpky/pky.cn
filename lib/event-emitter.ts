@@ -1,7 +1,7 @@
 /**
  * 发布订阅模式的事件模型
  */
-export class EventEmitter {
+export default class EventEmitter {
   events: {
     [x: string]: ((...args: unknown[]) => any)[]
   }

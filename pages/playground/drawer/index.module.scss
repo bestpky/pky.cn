@@ -21,7 +21,9 @@
   background-color: $color-primary;
   position: relative;
   z-index: 1;
-  @include flexCenter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .drawer {
