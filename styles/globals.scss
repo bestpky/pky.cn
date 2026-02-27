@@ -42,3 +42,39 @@ pre[class*='language-'],
 code[class*='language-'] {
   font-size: 14px !important;
 }
+
+.prose ul li:has(input[type='checkbox']) {
+  list-style: none;
+  padding-left: 0;
+  margin-left: -1.5em;
+}
+
+.prose input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1em;
+  height: 1em;
+  border: 1.5px solid #d1d5db;
+  border-radius: 3px;
+  vertical-align: -0.15em;
+  position: relative;
+  cursor: default;
+}
+
+.prose input[type='checkbox']:checked {
+  background-color: #facc15;
+  border-color: #facc15;
+}
+
+.prose input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 0.18em;
+  top: 0.05em;
+  width: 0.35em;
+  height: 0.6em;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}

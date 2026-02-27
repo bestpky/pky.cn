@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import externalLinks from 'remark-external-links'
+import gfm from 'remark-gfm'
 import prism from 'remark-prism'
 
 import { IPostDataSource, Post, PostSummary } from './interface'
@@ -61,7 +62,7 @@ export class PostgresPostDataSource implements IPostDataSource {
       description: post.description || '',
       tags: post.tags || [],
       content: await serialize(post.content, {
-        mdxOptions: { remarkPlugins: [prism, externalLinks] },
+        mdxOptions: { remarkPlugins: [prism, externalLinks, gfm] },
       }),
     }
   }
