@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
+import rehypePrism from 'rehype-prism-plus'
 import externalLinks from 'remark-external-links'
 import gfm from 'remark-gfm'
-import prism from 'remark-prism'
 
 import { IPostDataSource, Post, PostSummary } from './interface'
 
@@ -61,9 +61,13 @@ export class PostgresPostDataSource implements IPostDataSource {
       date: dayjs(post.publishedAt).format('YYYY-MM-DD'),
       description: post.description || '',
       tags: post.tags || [],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       content: await serialize(post.content, {
-        mdxOptions: { remarkPlugins: [prism, externalLinks, gfm] },
-      }),
+        mdxOptions: {
+          remarkPlugins: [gfm, externalLinks],
+          rehypePlugins: [rehypePrism],
+        },
+      } as any),
     }
   }
 }
